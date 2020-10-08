@@ -1,5 +1,5 @@
 all:
-	iverilog -g2005-sv -DICARUS=1 -o tb.qqq tb.v
+	iverilog -g2005-sv -DICARUS=1 -o tb.qqq tb.v nes6502.v
 	vvp tb.qqq >> /dev/null
 wave:
 	gtkwave tb.vcd

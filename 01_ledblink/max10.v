@@ -9,12 +9,11 @@ module max10(
     input  wire          CLK100MHZ
 );
 
-assign LED = mm[3:0];
+assign LED = clock50;
 
-reg [511:0] mm = 512'hEA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_EA_C1_;
-
-always @(posedge CLK100MHZ)
-    mm <= mm[511:4];
-
+pll PLL(
+    .inclk0 (CLK100MHZ),
+    .c50    (clock50),
+);
 
 endmodule
