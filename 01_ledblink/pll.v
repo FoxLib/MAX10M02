@@ -4,14 +4,10 @@
 // synopsys translate_on
 module pll
 (
-    inclk0,
-    c50,
-    locked
+    input      inclk0,
+    output    c25,
+    output    locked
 );
-
-input     inclk0;
-output    c50;
-output    locked;
 
 wire [0:0]  sub_wire2   = 1'h0;
 wire [4:0]  sub_wire3;          // Output clock
@@ -19,8 +15,8 @@ wire        sub_wire5;
 wire        sub_wire0   = inclk0;
 wire [1:0]  sub_wire1   = {sub_wire2, sub_wire0};
 wire [0:0]  sub_wire4   = sub_wire3[0:0];
-wire        c50         = sub_wire4;
-wire        locked      = sub_wire5;
+assign      c25         = sub_wire4;
+assign      locked      = sub_wire5;
 
 altpll  altpll_component (
     .inclk          (sub_wire1),
@@ -66,7 +62,7 @@ defparam
     altpll_component.bandwidth_type     = "AUTO",
 
     // Clock 50 Mhz
-    altpll_component.clk0_divide_by     = 2,
+    altpll_component.clk0_divide_by     = 4,
     altpll_component.clk0_duty_cycle    = 50,
     altpll_component.clk0_multiply_by   = 1,
     altpll_component.clk0_phase_shift   = "0",
