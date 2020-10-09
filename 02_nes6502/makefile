@@ -1,8 +1,10 @@
 all:
 	iverilog -g2005-sv -DICARUS=1 -o tb.qqq tb.v nes6502.v
 	vvp tb.qqq >> /dev/null
-wave:
+vcd:
 	gtkwave tb.vcd
+wave:
+	gtkwave tb.gtkw
 clean:
 	rm -f *.rpt *.summary *.sof *.done *.pin *.qws *.bak *.smsg *.qws *.vcd \
 		  *.qqq *.jic *.map *.qqq undo_redo.txt PLLJ_PLLSPE_INFO.txt

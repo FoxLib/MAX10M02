@@ -16,11 +16,11 @@ wire [ 7:0] data_out;
 wire        read;
 wire        write;
 
-nes6502 NesTicle(
+nes6502 NesMeow(
 
-    .clock  (clk),
+    .clock  (clk25),
     .address(address),
-    .data   (data_in),
+    .din    (data_in),
     .out    (data_out),
     .rd     (read),
     .we     (write)

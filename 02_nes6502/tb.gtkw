@@ -1,0 +1,35 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Thu Oct  8 17:32:41 2020
+[*]
+[dumpfile] "/disk/fox/dev/max10/02_nes6502/tb.vcd"
+[dumpfile_mtime] "Thu Oct  8 17:32:21 2020"
+[dumpfile_size] 42483
+[savefile] "/disk/fox/dev/max10/02_nes6502/tb.gtkw"
+[timestart] 0
+[size] 1920 1029
+[pos] -1 -1
+*-6.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[sst_width] 243
+[signals_width] 157
+[sst_expanded] 1
+[sst_vpaned_height] 298
+@29
+tb.clk
+@28
+tb.NesMeow.clock
+@22
+tb.NesMeow.address[15:0]
+@28
+tb.NesMeow.bus
+@22
+tb.NesMeow.cursor[15:0]
+tb.NesMeow.data[7:0]
+tb.NesMeow.out[7:0]
+tb.NesMeow.pc[15:0]
+@28
+tb.NesMeow.rd
+tb.NesMeow.we
+[pattern_trace] 1
+[pattern_trace] 0
