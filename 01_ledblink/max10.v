@@ -9,26 +9,23 @@ module max10(
     input  wire          CLK100MHZ
 );
 
-assign LED = ledena ? ~4'b1101 : 4'b1111 /* off */;
+assign LED = ~rxb[3:0];
 
+wire [7:0] rbyte;
+reg  [7:0] rxb;
+wire ready;
 
-// 100.000.000 div 2^(17+1) = 381 Hz
-reg ledena;
-reg [16:0] cnt;
-reg [16:0] duty = 1024;
+always @(posedge clock25)
+    if (ready)
+        rxb <= rbyte;
 
-always @(posedge CLK100MHZ) begin
+uart UART(
 
-	// 50%
-	ledena <= cnt < duty;
-	cnt    <= cnt + 1;
-	 
-	if (cnt == 0) begin
-		if (~KEY0) duty <= duty + 1;
-		if (~KEY1) duty <= duty - 1;
-	end
-	
-end
+    .clock25 (clock25),
+    .rx      (SERIAL_RX),
+    .ready   (ready),
+    .rbyte   (rbyte)
+);
 
 pll PLL(
     .inclk0 (CLK100MHZ),
